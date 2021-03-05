@@ -43,28 +43,28 @@ class CreateAllTables extends Migration
             $table->string('longitude')->nullable();
         });
 
-        Schema::create('barberfotos', function (Blueprint $table) {
+        Schema::create('barberphotos', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_baber');
+            $table->integer('id_barber');
             $table->string('url');
         });
 
         Schema::create('barberreviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_baber');
+            $table->integer('id_barber');
             $table->float('rate');
         });
 
         Schema::create('barberservices', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_baber');
+            $table->integer('id_barber');
             $table->string('name');
             $table->float('price');
         });
 
         Schema::create('barbertestimonials', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_baber');
+            $table->integer('id_barber');
             $table->string('name');
             $table->float('rate');
             $table->string('body');
@@ -72,7 +72,7 @@ class CreateAllTables extends Migration
 
         Schema::create('barberavailability', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_baber');
+            $table->integer('id_barber');
             $table->integer('weekday');
             $table->text('hours');
         });
@@ -89,7 +89,7 @@ class CreateAllTables extends Migration
         Schema::dropIfExists('userfavorites');
         Schema::dropIfExists('userappointments');
         Schema::dropIfExists('barbers');
-        Schema::dropIfExists('barberfotos');
+        Schema::dropIfExists('barberphotos');
         Schema::dropIfExists('barberreviews');
         Schema::dropIfExists('barberservices');
         Schema::dropIfExists('barbertestimonials');
