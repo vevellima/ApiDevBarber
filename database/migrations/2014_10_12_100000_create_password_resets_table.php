@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterAppointmentTable extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AlterAppointmentTable extends Migration
      */
     public function up()
     {
-        Schema::table('userappointments', function (Blueprint $table) {
-            $table->integer('id_service')->after('id_barber');
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -25,8 +27,6 @@ class AlterAppointmentTable extends Migration
      */
     public function down()
     {
-        Schema::table('userappointments', function (Blueprint $table) {
-            $table->dropColumn('id_service');
-        });
+        Schema::dropIfExists('password_resets');
     }
 }
